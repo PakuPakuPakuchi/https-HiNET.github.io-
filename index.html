@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi!-NET</title>
+    <link rel="stylesheet" type="text/css" href="style2.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 最初のページ（ログイン前） -->
+        <div id="login-page" class="page">
+            <header>
+                <h1>Hi!-NET</h1>
+                <nav>
+                    <button id="show-signup" class="btn">新規登録</button>
+                    <button id="show-login" class="btn">ログイン</button>
+                </nav>
+            </header>
+            <main>
+                <div id="auth-forms">
+                    <div id="login-form" class="form">
+                        <h2>ログイン</h2>
+                        <input type="text" id="login-id" placeholder="識別コード（5桁）">
+                        <input type="password" id="login-password" placeholder="パスワード">
+                        <button id="login-button" class="btn">ログイン</button>
+                    </div>
+                    <div id="signup-form" class="form hidden">
+                        <h2>新規登録</h2>
+                        <input type="text" id="signup-nickname" placeholder="ニックネーム">
+                        <input type="text" id="signup-id" placeholder="識別コード（5桁）">
+                        <input type="password" id="signup-password" placeholder="パスワード">
+                        <button id="signup-button" class="btn">登録</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- 二つ目のページ（ログイン後のメインページ） -->
+        <div id="main-page" class="page hidden">
+            <header>
+                <h1>Hi!-NET</h1>
+                <nav>
+                    <button id="logout" class="btn">ログアウト</button>
+                    <button id="new-space-btn" class="btn">新規スペース</button>
+                    <div id="active-spaces"></div>
+                </nav>
+            </header>
+            <main>
+                <div id="public-chat">
+                    <h2>公開チャット</h2>
+                    <div id="messages" class="message-area"></div>
+                    <form id="message-form">
+                        <input type="text" id="message-input" placeholder="メッセージを入力...">
+                        <button type="submit" class="btn">送信</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+
+        <!-- 三つ目のページ（個別スペースページ） -->
+        <div id="space-page" class="page hidden">
+            <header>
+                <h1>Hi!-NET</h1>
+                <nav>
+                    <button id="add-member" class="btn">メンバー追加</button>
+                    <button id="back-to-public" class="btn">公開チャットへ移動</button>
+                </nav>
+            </header>
+            <main>
+                <div id="space-chat">
+                    <h2 id="space-name"></h2>
+                    <div id="space-messages" class="message-area"></div>
+                    <form id="space-message-form">
+                        <input type="text" id="space-message-input" placeholder="メッセージを入力...">
+                        <button type="submit" class="btn">送信</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+
+        <!-- 新規スペース作成モーダル -->
+        <div id="new-space-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>新規スペース作成</h2>
+                <input type="text" id="space-name-input" placeholder="スペース名">
+                <input type="text" id="member-id-input" placeholder="メンバーの識別コード（カンマ区切り）">
+                <button id="create-space-btn" class="btn">作成</button>
+                <button id="close-modal-btn" class="btn">閉じる</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
